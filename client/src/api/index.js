@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: process.env.VITE_API_URL || "http://localhost:5000/api/",
+  baseURL: "https://fitnesstrack-wnqb.onrender.com/api/",
 });
 
 export const UserSignUp = async (data) => API.post("/user/signup", data);
