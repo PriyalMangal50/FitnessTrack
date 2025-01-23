@@ -6,17 +6,12 @@ import UserRoutes from "./routes/User.js";
 
 dotenv.config();
 
-const app = express();const corsOptions = {
-  origin: "https://fitness-track-two.vercel.app", // Allow only your frontend URL
-  methods: "GET,POST,PUT,DELETE",
-  credentials: true,
-};
-app.use(cors(corsOptions));
+const app = express();
+app.use(cors());
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true })); // for form data
 
-// FitnessTrack/server/index.js
-app.use("/api/user", UserRoutes);  // The correct route mounting
+app.use("/api/user/", UserRoutes);
 // error handler
 app.use((err, req, res, next) => {
   const status = err.status || 500;
