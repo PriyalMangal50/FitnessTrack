@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:5000/api/",  // Change the baseURL to match the server port
+  baseURL: process.env.VITE_API_URL || "http://localhost:5000/api/",
 });
 
 export const UserSignUp = async (data) => API.post("/user/signup", data);
